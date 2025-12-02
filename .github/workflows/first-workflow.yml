@@ -7,17 +7,17 @@ jobs:
         - name: Git repo checkout
           uses: actions/checkout@v6
         - name: Install cowsay
-          run: sudo apt-get install cowsay -y
+          run: sudo apt-get update && sudo apt-get install cowsay -y
 
         - name: Welcome Message
           run: |
-               cowsay -f dragon "Hello github Dragon" >> dragon.txt
-               grep -I "dragon" dragon.txt
-               cat dragon.txt
+            cowsay -f dragon "Hello github Dragon" >> dragon.txt
+            grep -I "dragon" dragon.txt
+            cat dragon.txt
 
         - name: Checking Files
           run: |
-               echo "Hello from github actions flow" 
-               ls -ltr 
-               cat README.md
+            echo "Hello from github actions flow" 
+            ls -ltr 
+            cat README.md
 
