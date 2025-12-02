@@ -4,11 +4,17 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
-        - name: Welcome Message
-          run: echo "Hello form github actions flow"
         - name: Git repo checkout
           uses: actions/checkout@v6
-        - name: list files
-          run: ls
-        - name: show directory
-          run: pwd
+        - name: Welcome Message
+          run: |
+               sudo apt-get install cowsay -y
+               cowsay -f dragon "Hello github Dragon" >> dragon.txt
+               grep -I "dragon" dragon.txt
+               cat dragon.txt
+        - name: Checking Files
+          run: |
+               echo "Hello form github actions flow" 
+               ls -ltr 
+               cat README.md
+
