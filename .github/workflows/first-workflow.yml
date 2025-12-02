@@ -1,23 +1,26 @@
 name: my first workflow
+
 on: push
+
 jobs:
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Git repo checkout
-          uses: actions/checkout@v6
-        - name: Install cowsay
-          run: sudo apt-get update && sudo apt-get install cowsay -y
+  first_job:
+    runs-on: ubuntu-latest
 
-        - name: Welcome Message
-          run: |
-            cowsay -f dragon "Hello github Dragon" >> dragon.txt
-            grep -I "dragon" dragon.txt
-            cat dragon.txt
+    steps:
+      - name: Git repo checkout
+        uses: actions/checkout@v6
 
-        - name: Checking Files
-          run: |
-            echo "Hello from github actions flow" 
-            ls -ltr 
-            cat README.md
+      - name: Install cowsay
+        run: sudo apt-get update && sudo apt-get install cowsay -y
 
+      - name: Welcome Message
+        run: |
+          cowsay -f dragon "Hello github Dragon" >> dragon.txt
+          grep -I "dragon" dragon.txt
+          cat dragon.txt
+
+      - name: Checking Files
+        run: |
+          echo "Hello from github actions flow"
+          ls -ltr
+          cat README.md
