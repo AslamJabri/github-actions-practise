@@ -6,6 +6,8 @@ jobs:
         steps:
         - name: Welcome Message
           run: echo "Hello form github actions flow"
+        - name: Git repo checkout
+          uses: actions/checkout@v6
         - name: list files
           run: ls
         - name: show directory
