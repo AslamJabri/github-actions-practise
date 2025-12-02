@@ -6,15 +6,18 @@ jobs:
         steps:
         - name: Git repo checkout
           uses: actions/checkout@v6
+        - name: Install cowsay
+          run: sudo apt-get install cowsay -y
+
         - name: Welcome Message
           run: |
-               sudo apt-get install cowsay -y
                cowsay -f dragon "Hello github Dragon" >> dragon.txt
                grep -I "dragon" dragon.txt
                cat dragon.txt
+
         - name: Checking Files
           run: |
-               echo "Hello form github actions flow" 
+               echo "Hello from github actions flow" 
                ls -ltr 
                cat README.md
 
