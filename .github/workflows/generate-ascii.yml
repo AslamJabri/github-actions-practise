@@ -1,0 +1,12 @@
+name: Generating ASCII
+on: push
+jobs:
+    generate-ascii:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Update the repo
+          run: sudo apt-get update && sudo apt-get install cowsay -y
+        - name: Generate Dragon
+          run: cowsay -f dragon "Hello From Dragon" > dragon.txt
+        - name: Read files
+          run: cat dragon.txt 
