@@ -23,7 +23,7 @@ jobs:
         with:
           name: dragon-text
       - name: Checking the file
-        run: grep -I "dragon" dragon.txt
+        run: grep -i "dragon" dragon.txt
 
     build_job_file-content:
       needs: [generate-ascii,build_job_file-exist]
