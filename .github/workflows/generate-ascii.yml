@@ -8,7 +8,8 @@ jobs:
           run: sudo apt-get update && sudo apt-get install cowsay -y
         - name: Generate Dragon
           run: cowsay -f dragon "Hello From Dragon" > dragon.txt
-        - uses: actions/download-artifact@v5
+        - name: Upload the artifact 
+          uses: actions/upload-artifact@v4
           with:
             name: dragon-text
             path: dragon.txt
@@ -17,9 +18,10 @@ jobs:
       needs: generate-ascii
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/upload-artifact@v4
+      - name: Downloading the artifact
+        uses: actions/download-artifact@v4
         with:
-          name: upload dragon file
+          name: dragon-text
           path: dragon.txt
       - name: Checking the file
         run: grep -I "dragon" dragon.txt
@@ -28,9 +30,10 @@ jobs:
       needs: [generate-ascii,build_job_file-exist]
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/upload-artifact@v4
+      - name: Downloading the artifact
+        uses: actions/download-artifact@v4
         with:  
-          name: upload dragon file
+          name: dragon-text
           path: dragon.txt
       - name: check the content
         run: cat dragon.txt
