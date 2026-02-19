@@ -19,6 +19,7 @@ jobs:
       - name: check the node version
         run: node --version
   second-jobs:
+    needs: first-job
     runs-on: ubuntu-latest
     steps:
       - name: get code
@@ -29,3 +30,4 @@ jobs:
           python-version: 3.12
       - name: check python version
         run: python3 --version
+
