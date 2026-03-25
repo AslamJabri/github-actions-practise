@@ -1,5 +1,5 @@
 name: First Workflow
-on: workflow-dispatch # we can put the event this event manually start the workflow
+on: workflow_dispatch # we can put the event this event manually start the workflow
 jobs:
   first-job:            # jobs name it can be anything
     runs-on: ubuntu-latest
