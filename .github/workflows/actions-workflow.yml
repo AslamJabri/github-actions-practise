@@ -1,11 +1,14 @@
-name: First-Workflow
-on: workflow_dispatch
+name: First Workflow
+on: workflow-dispatch # we can put the event this event manually start the workflow
 jobs:
-  first-job:
+  first-job:            # jobs name it can be anything
     runs-on: ubuntu-latest
     steps:
-      - name: Print Greeting
-        run: echo "Hello from github actions"
-      - name: Bye
-        run: echo "Done-Bye!"
-
+      - name: Print greeting
+        run: echo "Hello this is github actions"
+      - name: Print goodbye
+        run: echo "Thank you for using bye!"
+      - name: Multiline Shell
+        run: |
+            echo "This is a multiline command"
+            echo "To run in shell"
